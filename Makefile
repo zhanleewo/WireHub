@@ -4,7 +4,7 @@ SO = .obj/whcore.so
 SRC_C = $(wildcard src/core/*.c)
 OBJ_C = $(patsubst src/core/%.c,.obj/%.o,$(SRC_C)) .obj/embeddable-wg.o
 
-EMBED_WG_PATH = deps/WireGuard/contrib/examples/embeddable-wg-library
+EMBED_WG_PATH = deps/wireguard-tools/contrib/embeddable-wg-library
 
 CC=gcc
 MINIMAL_CFLAGS=-Wall -fPIC
@@ -16,7 +16,7 @@ else
 	MINIMAL_CFLAGS+=-O2
 endif
 
-CFLAGS=$(MINIMAL_CFLAGS) -Wextra -Ideps/WireGuard/contrib/examples/embeddable-wg-library
+CFLAGS=$(MINIMAL_CFLAGS) -Wextra -Ideps/wireguard-tools/contrib/embeddable-wg-library
 WG_EMBED_CFLAGS=$(MINIMAL_CFLAGS)
 LDFLAGS=-lsodium -lpthread -lpcap -lminiupnpc
 
